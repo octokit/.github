@@ -1,10 +1,10 @@
 ### 🆕🐥☝ First Timers Only.
 
-This issue is reserved for people who never contributed to Open Source before. We know that the process of creating a pull request is the biggest barrier for new contributors. This issue is for you 💝
+This issue is reserved for first-time contributors to [@octokit](https://github.com/octokit/). We know that the process of creating a pull request is the biggest barrier for new contributors. This issue is for you 💝
 
 [About First Timers Only](http://www.firsttimersonly.com/).
 
-### 🤔 What you will need to know.
+### 🤔 What this issue is about
 
 $COMMIT_BODY
 
@@ -35,4 +35,4 @@ If there are more than one pull requests with the correct change, we will merge 
 
 Leave a comment below!
 
-This issue was created by [First-Timers-Bot](https://github.com/hoodiehq/first-timers-bot).
+This issue was created by the [FirstTimers GitHub App](https://github.com/hoodiehq/first-timers-bot).
