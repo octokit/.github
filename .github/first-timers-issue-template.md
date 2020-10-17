@@ -16,9 +16,9 @@ $COMMIT_BODY
 
 - [ ] 📝 **Update** the file [\$FILENAME]($BRANCH_URL) (press the little pen Icon) and edit as shown below:
 
-```diff
+````diff
 $DIFF
-```
+````
 
 - [ ] 💾 **Commit** your changes
 
