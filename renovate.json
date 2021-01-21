@@ -1,0 +1,19 @@
+{
+  "labels": ["maintenance"],
+  "extends": ["config:base"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "dependencyDashboard": true,
+  "rangeStrategy": "replace",
+  "semanticCommitType": "fix",
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true,
+      "automergeType": "branch",
+      "semanticCommitType": "build"
+    }
+  ]
+}
