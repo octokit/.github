@@ -10,6 +10,11 @@
     {
       "depTypeList": ["devDependencies"],
       "semanticCommitType": "build"
+    },
+    {
+      "depTypeList": ["action"],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "action"
     }
   ]
 }
