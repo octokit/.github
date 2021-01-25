@@ -5,11 +5,11 @@
     "enabled": true
   },
   "rangeStrategy": "replace",
-  "semanticCommitType": "fix",
+  "semanticCommitType": "build",
   "packageRules": [
     {
-      "depTypeList": ["devDependencies"],
-      "semanticCommitType": "build"
+      "depTypeList": ["dependencies"],
+      "semanticCommitType": "fix"
     },
     {
       "depTypeList": ["action"],
