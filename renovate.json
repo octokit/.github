@@ -1,6 +1,6 @@
 {
   "labels": ["maintenance"],
-  "extends": ["config:base"],
+  "extends": ["config:base", ":disableDependencyDashboard"],
   "lockFileMaintenance": {
     "enabled": true
   },
