@@ -1,7 +1,6 @@
 {
   "labels": ["maintenance"],
   "extends": ["config:base", ":disableDependencyDashboard"],
-  "enabled": false,
   "rangeStrategy": "replace",
   "semanticCommitType": "build",
   "packageRules": [
