@@ -8,6 +8,12 @@
   "semanticCommitType": "build",
   "packageRules": [
     {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "semanticCommitType": "chore"
+    },
+    {
       "depTypeList": ["dependencies"],
       "semanticCommitType": "fix"
     },
