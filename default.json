@@ -2,7 +2,7 @@
   "labels": ["maintenance"],
   "extends": ["config:base", ":disableDependencyDashboard"],
   "lockFileMaintenance": {
-    "enabled": false
+    "enabled": true
   },
   "rangeStrategy": "replace",
   "semanticCommitType": "build",
