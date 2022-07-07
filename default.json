@@ -1,6 +1,12 @@
 {
-  "labels": ["maintenance"],
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "labels": [
+    "maintenance"
+  ],
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    "helpers:pinGitHubActionDigests"
+  ],
   "lockFileMaintenance": {
     "enabled": false
   },
@@ -14,11 +20,15 @@
       "semanticCommitType": "chore"
     },
     {
-      "depTypeList": ["dependencies"],
+      "depTypeList": [
+        "dependencies"
+      ],
       "semanticCommitType": "fix"
     },
     {
-      "depTypeList": ["action"],
+      "depTypeList": [
+        "action"
+      ],
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     }
