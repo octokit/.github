@@ -2,7 +2,8 @@
   "labels": ["maintenance"],
   "extends": ["config:base", ":disableDependencyDashboard"],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "schedule": ["before 5am on monday"]
   },
   "rangeStrategy": "replace",
   "semanticCommitType": "build",
