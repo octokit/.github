@@ -6,7 +6,8 @@
     "helpers:pinGitHubActionDigests"
   ],
   "lockFileMaintenance": {
-    "enabled": false
+    "enabled": true,
+    "schedule": ["before 5am on monday"]
   },
   "rangeStrategy": "replace",
   "semanticCommitType": "build",
