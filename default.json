@@ -1,7 +1,5 @@
 {
-  "labels": [
-    "maintenance"
-  ],
+  "labels": ["maintenance"],
   "extends": [
     "config:base",
     ":disableDependencyDashboard",
@@ -14,21 +12,15 @@
   "semanticCommitType": "build",
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "*"
-      ],
+      "matchPackagePatterns": ["*"],
       "semanticCommitType": "chore"
     },
     {
-      "depTypeList": [
-        "dependencies"
-      ],
+      "depTypeList": ["dependencies", "peerDependencies"],
       "semanticCommitType": "fix"
     },
     {
-      "depTypeList": [
-        "action"
-      ],
+      "depTypeList": ["action"],
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     }
