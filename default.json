@@ -25,5 +25,6 @@
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     }
-  ]
+  ],
+  "ignoreDeps": ["@pika/pack"]
 }
