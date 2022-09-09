@@ -2,8 +2,7 @@
   "labels": ["maintenance"],
   "extends": [
     "config:base",
-    ":disableDependencyDashboard",
-    "helpers:pinGitHubActionDigests"
+    ":disableDependencyDashboard"
   ],
   "lockFileMaintenance": {
     "enabled": true,
