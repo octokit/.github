@@ -25,5 +25,5 @@
       "semanticCommitScope": "action"
     }
   ],
-  "ignoreDeps": ["@pika/pack"]
+  "ignoreDeps": ["@pika/pack", "@octokit/types"]
 }
