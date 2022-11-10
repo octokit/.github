@@ -1,6 +1,6 @@
 What are breaking and non breaking changes in the context of the [Octokit](https://github.com/octokit) and [Terraform](https://github.com/integrations/terraform-provider-github) SDKs?
 
-While the answer to that question might not always be clear we tend to follow what GitHib considers as breaking changes, 
+While the answer to that question might not always be clear we tend to follow what GitHub considers as breaking changes, 
 while also taking some inspiration from our friends at [Square](https://developer.squareup.com/docs/build-basics/versioning-overview)
 and [Stripe](https://stripe.com/docs/upgrades#what-changes-does-stripe-consider-to-be-backwards-compatible).
 
