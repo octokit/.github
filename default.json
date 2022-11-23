@@ -8,6 +8,9 @@
     "enabled": true,
     "schedule": ["before 5am on monday"]
   },
+  "constraints": {
+    "npm": "<9"
+  },
   "rangeStrategy": "replace",
   "semanticCommitType": "build",
   "packageRules": [
