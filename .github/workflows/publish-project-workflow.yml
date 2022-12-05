@@ -2,7 +2,7 @@ name: Workflow Publisher
 on:
  workflow_dispatch:
  push:
-   branches: [ 'main']
+   branches: [ 'master']
    paths:
    - 'templates/**'
 jobs:
