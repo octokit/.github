@@ -1,18 +1,39 @@
-name: Add PRs and issues to Octokit org project
-
+name: Workflow Publisher
 on:
-  issues:
-    types: [reopened, opened]
-  pull_request:
-    types: [reopened, opened]
+ push:
+   branches: [ 'main',  'master' ]
+   paths:
+   - 'templates/**'
 jobs:
-  add-to-project:
-    name: Add issue to project
+  publish-workflow-template:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target_repo: [ 'octokit-metrics' ]
     steps:
-      - uses: actions/add-to-project@RELEASE_VERSION
+      - name: Checkout Workflows
+        uses: actions/checkout@v3
         with:
-          project-url: https://github.com/orgs/octokit/projects/10
-          github-token: ${{ secrets.OCTOKITBOT_PAT }}
-          labeled: 'Status: Stale'
-          label-operator: NOT
+          path: main
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
+          path: ${{ matrix.target_repo }}
+          token: ${{ secrets.OCTOKITBOT_PAT}}
+          ref: master
+      - name: Update workflows
+        shell: bash
+        run: |
+          mkdir -p .github/workflows/
+          cp ../main/templates/* .github/workflows/
+        working-directory: ./${{ matrix.target_repo }}
+      - name: Publish workflows
+        shell: bash
+        run: |
+          git config --local user.email "octokit@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Github Agent | Workflow has updated"
+          git push
+        working-directory: ./${{ matrix.target_repo }}
