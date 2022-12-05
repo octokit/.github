@@ -1,5 +1,6 @@
 name: Workflow Publisher
 on:
+ workflow_dispatch:
  push:
    branches: [ 'main',  'master' ]
    paths:
