@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p .github/workflows/
-          cp ../main/templates/* .github/workflows/
+          cp ../main/.github/templates/* .github/workflows/
         working-directory: ./${{ matrix.target_repo }}
       - name: Publish workflows
         shell: bash
