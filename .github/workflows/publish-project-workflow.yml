@@ -13,11 +13,11 @@ jobs:
         target_repo: [ 'octokit-metrics' ]
     steps:
       - name: Checkout Workflows
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           path: main
       - name: Checkout target repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
