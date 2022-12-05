@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target_repo: [ 'octokit-metrics' ]
+        target_repo: [ 'octokit.net' ]
     steps:
       - name: Checkout Workflows
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: main
       - name: Checkout target repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
