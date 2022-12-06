@@ -41,7 +41,7 @@ jobs:
           body: |
             Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes.
           branch: "workflow-update"
-          path: ./${{ matrix.target_repo }}
+          path: ${{ github.GITHUB_WORKSPACE }}/${{ matrix.target_repo }}
           commit-message: "Updates for workflows"
           author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
           labels: "Type: Maintenance"
