@@ -31,14 +31,6 @@ jobs:
           mkdir -p ${{ matrix.target_repo }}/.github/workflows/
           cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
      
-      - name: Working Dir
-        shell: bash
-        run: |
-          which git
-          git status
-          git remote -v
-        working-directory: ${{ matrix.target_repo }}
-     
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
