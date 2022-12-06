@@ -38,6 +38,10 @@ jobs:
           cd .git
           ls -a
         working-directory: ./${{ matrix.target_repo }}
+        
+      - run: git stauts
+      
+      - run: git remote -v
      
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
