@@ -35,8 +35,6 @@ jobs:
         shell: bash
         run: |
           which git
-          cd .git
-          ls -a
           git status
           git remote -v
         working-directory: ${{ matrix.target_repo }}
