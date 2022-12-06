@@ -21,7 +21,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
-          token: ${{ secrets.OCTOKITBOT_PAT}}
+          token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
       - name: Update workflows
         shell: bash
         run: |
