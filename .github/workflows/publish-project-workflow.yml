@@ -39,8 +39,8 @@ jobs:
           ls -a
         working-directory: ./${{ matrix.target_repo }}
         
+      - run: ls -la
       - run: git status
-      
       - run: git remote -v
      
       - name: Create Pull Request
