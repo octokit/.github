@@ -38,7 +38,8 @@ jobs:
           cd .git
           ls -a
         working-directory: ./${{ matrix.target_repo }}
-        
+      
+      - run: cd ${{ matrix.target_repo }}
       - run: ls -la
       - run: git status
       - run: git remote -v
