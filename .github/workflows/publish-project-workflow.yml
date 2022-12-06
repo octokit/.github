@@ -23,7 +23,7 @@ jobs:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
           token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
-          
+      - run: git --version
       - run: git checkout workflow-update || true
       
       - name: Update workflows
@@ -36,6 +36,7 @@ jobs:
       - name: Working Dir
         shell: bash
         run: |
+          which git
           cd .git
           ls -a
         working-directory: ./${{ matrix.target_repo }}
