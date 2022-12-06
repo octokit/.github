@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target_repo: ['octokit.net','octokit.graphql.net','octokit-metrics','webhooks.net','octokit.rb','octopoller.rb','octokit.js','graphql-schema','webhooks.js','discussions','octokit.github.com','maintainers','fixtures','plugin-paginate-graphql.js','plugin-retry.js','auth-unauthenticated.js','plugin-request-log.js','auth-app.js','types.ts','plugin-paginate-rest.js','webhooks-methods.js','auth-oauth-user.js','auth-oauth-device.js','app.js','oauth-methods.js','plugin-rest-endpoint-methods.js','auth-callback.js','oauth-authorization-url.js','plugin-enterprise-cloud.js','plugin-create-or-update-text-file.js','request-error.js','oauth-app.js','action.js','auth-action.js','auth-oauth-app.js','plugin-enterprise-server.js','endpoint.js','webhooks','plugin-enterprise-compatibility.js','auth-token.js','request.js','graphql.js','core.js','fixtures-server','app-permissions','request-action','rest.js','create-octokit-project.js','graphql-action','octokit-next.js','openapi-types.ts','openapi','sandbox']
+        target_repo: ['octokit-metrics']
     steps:
       - name: Checkout Workflows
         uses: actions/checkout@v3
@@ -28,12 +28,19 @@ jobs:
           mkdir -p .github/workflows/
           cp ../main/.github/templates/* .github/workflows/
         working-directory: ./${{ matrix.target_repo }}
-      - name: Publish workflows
-        shell: bash
-        run: |
-          git config --local user.email "octokit@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Github Agent | Workflow has updated"
-          git push
-        working-directory: ./${{ matrix.target_repo }}
+      
+      # create/update pull request for dispatch event update
+      - name: Create Pull Request
+        # if: github.event_name != 'push'
+        uses: gr2m/create-or-update-pull-request-action@v1.x
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
+        with:
+          title: "🚧 Workflows have changed"
+          body: |
+            Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes.
+          branch: "workflow-update"
+          commit-message: "Updates for workflows"
+          author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
+          labels: "Type: Maintenance"
+         
