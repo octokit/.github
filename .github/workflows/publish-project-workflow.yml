@@ -31,6 +31,10 @@ jobs:
           mkdir -p ${{ matrix.target_repo }}/.github/workflows/
           cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
      
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+     
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
