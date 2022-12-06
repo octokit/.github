@@ -39,7 +39,7 @@ jobs:
           ls -a
         working-directory: ./${{ matrix.target_repo }}
         
-      - run: git stauts
+      - run: git status
       
       - run: git remote -v
      
