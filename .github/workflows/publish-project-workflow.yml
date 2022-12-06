@@ -36,8 +36,7 @@ jobs:
       - name: Working Dir
         shell: bash
         run: |
-          cd .github
-          ls
+          ls -a
         working-directory: ./${{ matrix.target_repo }}
           
      # create/update pull request for dispatch event update
