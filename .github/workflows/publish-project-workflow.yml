@@ -26,9 +26,9 @@ jobs:
       - name: Update workflows
         shell: bash
         run: |
+          ls
           mkdir -p .github/workflows/
           cp ../main/.github/templates/* .github/workflows/
-          ls
         working-directory: ./
  
          
