@@ -32,7 +32,12 @@ jobs:
         run: |
           mkdir -p ${{ matrix.target_repo }}/.github/workflows/
           cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
-      
+     
+      - name: Working Dir
+        shell: bash
+        run: |
+          ls
+          
      # create/update pull request for dispatch event update
       - name: Create Pull Request
         # if: github.event_name != 'push'
@@ -44,7 +49,7 @@ jobs:
           body: |
             Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes.
           branch: "workflow-update"
-          path: ./${{ matrix.target_repo }}/.github/workflows/
+          path: ./${{ matrix.target_repo }}/
           commit-message: "Updates for workflows"
           author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
           labels: "Type: Maintenance"
