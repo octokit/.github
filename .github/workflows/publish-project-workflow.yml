@@ -27,13 +27,13 @@ jobs:
       - run: git checkout workflow-update || true
       
       - name: Update workflows
+        working-directory: ./
         shell: bash
         run: |
           ls
           mkdir -p ${{ matrix.target_repo }}/.github/workflows/
           cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
-        working-directory: ${{ matrix.target_repo }}/
-     
+      
      # create/update pull request for dispatch event update
       - name: Create Pull Request
         # if: github.event_name != 'push'
