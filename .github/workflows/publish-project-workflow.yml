@@ -37,9 +37,8 @@ jobs:
           which git
           cd .git
           ls -a
-        working-directory: ./${{ matrix.target_repo }}
-      
-      - run: cd ${{ matrix.target_repo }}
+        working-directory: ${{ matrix.target_repo }}
+     
       - run: ls -la
       - run: git status
       - run: git remote -v
@@ -54,4 +53,5 @@ jobs:
           branch: workflow-update
           labels: "Type: Maintenance"
           author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
+          path: ${{ matrix.target_repo }}
          
