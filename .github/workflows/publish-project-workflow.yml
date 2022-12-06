@@ -22,6 +22,7 @@ jobs:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
           token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
+      - run: git checkout workflow-update || true
       - name: Update workflows
         shell: bash
         run: |
