@@ -28,7 +28,7 @@ jobs:
         run: |
           ls
           mkdir -p .github/workflows/
-          cp ../main/.github/templates/* .github/workflows/
+          cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
         working-directory: ./
  
          
