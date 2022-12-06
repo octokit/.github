@@ -36,6 +36,7 @@ jobs:
       - name: Working Dir
         shell: bash
         run: |
+          cd .git
           ls -a
         working-directory: ./${{ matrix.target_repo }}
           
