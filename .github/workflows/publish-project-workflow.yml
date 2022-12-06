@@ -37,11 +37,9 @@ jobs:
           which git
           cd .git
           ls -a
+          git status
+          git remote -v
         working-directory: ${{ matrix.target_repo }}
-     
-      - run: ls -la
-      - run: git status
-      - run: git remote -v
      
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
