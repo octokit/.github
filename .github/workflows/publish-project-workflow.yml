@@ -6,13 +6,24 @@ on:
    paths:
    - '.github/templates/**'
 jobs:
+  set-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+    - uses: actions/checkout@v3
+    - id: set-matrix
+      run: |
+        JSON=$(cat .github/workflows/repos.json)
+        echo "matrix=${JSON//'%'/'%25'}" >> $GITHUB_OUTPUT
   publish-workflow-template:
+    needs: set-matrix
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 2
       matrix:
-        target_repo: ['octokit.net','octokit.graphql.net','octokit-metrics','webhooks.net','octokit.rb','octopoller.rb','octokit.js','graphql-schema','webhooks.js','discussions','octokit.github.com','fixtures','plugin-paginate-graphql.js','plugin-retry.js','auth-unauthenticated.js','plugin-request-log.js','auth-app.js','types.ts','plugin-paginate-rest.js','webhooks-methods.js','auth-oauth-user.js','auth-oauth-device.js','app.js','oauth-methods.js','plugin-rest-endpoint-methods.js','auth-callback.js','oauth-authorization-url.js','plugin-enterprise-cloud.js','plugin-create-or-update-text-file.js','request-error.js','oauth-app.js','action.js','auth-action.js','auth-oauth-app.js','plugin-enterprise-server.js','endpoint.js','webhooks','plugin-enterprise-compatibility.js','auth-token.js','request.js','graphql.js','core.js','fixtures-server','app-permissions','request-action','rest.js','create-octokit-project.js','graphql-action','octokit-next.js','openapi-types.ts','openapi','sandbox']
-    steps:
+        target_repo: ${{fromJson(needs.job1.outputs.matrix)}}
+      steps:
       - name: Checkout Workflows
         uses: actions/checkout@v3
         with:
@@ -21,7 +32,7 @@ jobs:
       - name: Checkout target repo
         uses: actions/checkout@v3
         with:
-          repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
+          repository: ${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
           token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
 
