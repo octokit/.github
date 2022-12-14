@@ -6,41 +6,49 @@ on:
    paths:
    - '.github/templates/**'
 jobs:
+  set-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+     - uses: actions/checkout@v3
+     - id: set-matrix
+       run: |
+         JSON=$(cat .github/workflows/repos.json)
+         echo "matrix=${JSON//'%'/'%25'}" >> $GITHUB_OUTPUT
   publish-workflow-template:
+    needs: set-matrix
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 2
       matrix:
-        target_repo: ['octokit.net','octokit.graphql.net','octokit-metrics','webhooks.net','octokit.rb','octopoller.rb','octokit.js','graphql-schema','webhooks.js','discussions','octokit.github.com','fixtures','plugin-paginate-graphql.js','plugin-retry.js','auth-unauthenticated.js','plugin-request-log.js','auth-app.js','types.ts','plugin-paginate-rest.js','webhooks-methods.js','auth-oauth-user.js','auth-oauth-device.js','app.js','oauth-methods.js','plugin-rest-endpoint-methods.js','auth-callback.js','oauth-authorization-url.js','plugin-enterprise-cloud.js','plugin-create-or-update-text-file.js','request-error.js','oauth-app.js','action.js','auth-action.js','auth-oauth-app.js','plugin-enterprise-server.js','endpoint.js','webhooks','plugin-enterprise-compatibility.js','auth-token.js','request.js','graphql.js','core.js','fixtures-server','app-permissions','request-action','rest.js','create-octokit-project.js','graphql-action','octokit-next.js','openapi-types.ts','openapi','sandbox']
+         target_repo: ${{fromJson(needs.set-matrix.outputs.matrix)}} 
     steps:
-      - name: Checkout Workflows
-        uses: actions/checkout@v3
-        with:
-          path: main
-
-      - name: Checkout target repo
-        uses: actions/checkout@v3
-        with:
-          repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
-          path: ${{ matrix.target_repo }}
-          token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
-
-      - name: Update workflows
-        working-directory: ./
-        shell: bash
-        run: |
-          mkdir -p ${{ matrix.target_repo }}/.github/workflows/
-          cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
-          commit-message: "Updates for workflows"
-          title: "🚧 Workflows have changed"
-          body: "Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes."
-          branch: workflow-update
-          labels: "Type: Maintenance"
-          author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
-          path: ${{ matrix.target_repo }}
-
+     - name: Checkout Workflows
+       uses: actions/checkout@v3
+       with:
+         path: main
+     - name: Checkout target repo
+       uses: actions/checkout@v3
+       with:
+         repository: ${{ matrix.target_repo }}
+         path: ${{ matrix.target_repo }}
+         token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
+     - name: Update workflows
+       working-directory: ./
+       shell: bash
+       run: |
+         mkdir -p ${{ matrix.target_repo }}/.github/workflows/
+         cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
+     - name: Create Pull Request
+       uses: peter-evans/create-pull-request@v4
+       with:
+         token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
+         commit-message: "Updates for workflows"
+         title: "🚧 Workflows have changed"
+         body: "Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes."
+         branch: workflow-update
+         labels: "Type: Maintenance"
+         author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
+         path: ${{ matrix.target_repo }}
+   
