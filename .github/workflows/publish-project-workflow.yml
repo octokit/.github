@@ -2,7 +2,7 @@ name: Workflow Publisher
 on:
  workflow_dispatch:
  push:
-   branches: [ 'master']
+   branches: [ 'main']
    paths:
    - '.github/templates/**'
 jobs:
@@ -22,7 +22,7 @@ jobs:
     strategy:
       max-parallel: 2
       matrix:
-         target_repo: ${{fromJson(needs.set-matrix.outputs.matrix)}} 
+         target_repo: ${{fromJson(needs.set-matrix.outputs.matrix)}}
     steps:
      - name: Checkout Workflows
        uses: actions/checkout@v3
@@ -51,4 +51,4 @@ jobs:
          labels: "Type: Maintenance"
          author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
          path: ${{ matrix.target_repo }}
-   
+
