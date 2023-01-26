@@ -27,7 +27,7 @@ Note: This does not represent a commitment to resolution, just how quickly we'll
 
 | Priority  | Response expectation | 
 |----------|:-----------|
-| Urgent | 0 to **24hrs**:  Communication with users is ongoing and frequent until the issue is resolved. A security advisory will be posted if needed. |
+| Urgent | 0 to **24hrs**:  A security advisory will be posted if needed and updates publically posted to the corresponding repository |
 | High | =< **1 Week** : Typically, we'll respond in issue/pr and will have a plan of action within the response expectation time window. | 
 | Normal | >= **1 Week** : We'll acknowledge and make administrative assignments to the issue or PR.  They might get labeled "up-for-grabs". |
 | Low | > **1 Week**: Typically, little to no action will take place on these items. They will often get labeled "up-for-grabs". |
