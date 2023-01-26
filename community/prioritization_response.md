@@ -36,7 +36,7 @@ Note: This does not represent a commitment to resolution, just how quickly we'll
 ### How do we Prioritize?
 
 Remembering that we as a team have to prioritize not at the individual SDK or community level but across many repositories and communities our, methods need to consider several variables.
-Our process, while not exactly scientific, leans heavily into a broad stroke that favors protecting :lock: and serving :hotel: our communities first - we use a modified version of [RICE](https://www.productplan.com/glossary/rice-scoring-model/).
+Our process, while not exactly scientific, is aimed at protecting the interests of our communities first - we use a modified version of [RICE](https://www.productplan.com/glossary/rice-scoring-model/).
 
 Here are some data points, empathetic aspects, and questions we use to help us prioritize.
 
