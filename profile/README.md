@@ -6,9 +6,9 @@
 We're glad you're here! This is where we host all of our Official[^1] SDKs for the GitHub API. 
 
 Currently, GitHub maintains SDKs for the following languages/frameworks/platforms:
-- [JavaScript](https://github.com/octokit?q=&type=all&language=javascript&sort=) / [TypeScript](https://github.com/octokit?q=&type=all&language=typescript&sort=)
-- [C# / .NET](https://github.com/octokit?q=&type=all&language=c%23&sort=)
-- [Ruby](https://github.com/octokit?q=&type=all&language=ruby&sort=)
+- [JavaScript](https://github.com/octokit?language=javascript#org-profile-repositories) / [TypeScript](https://github.com/octokit?language=typescript#org-profile-repositories)
+- [C# / .NET](https://github.com/octokit?language=c%23#org-profile-repositories)
+- [Ruby](https://github.com/octokit?language=ruby#org-profile-repositories)
 - [Terraform provider](https://github.com/integrations/terraform-provider-github)
 
 If you're new here, please take a moment to get familliar with how our communities get stuff done - hopefully you'll consider being part of the amazing things happening here.
@@ -29,7 +29,3 @@ making contributions. Oh, and thanks for being amazing and helping to both impro
 
 [^1]:Official just means GitHub and folks from GitHub support and maintain these libraries on an ongoing basis. 
 You can checkout some of the other amazing SDKs created and maintained by the community [here](https://docs.github.com/en/rest/overview/libraries)!
-
-
-
-
