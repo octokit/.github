@@ -7,7 +7,7 @@ We're glad you're here! This is where we host all of our Official[^1] SDKs for t
 
 Currently, GitHub maintains SDKs for the following languages/frameworks/platforms:
 - [JavaScript](https://github.com/octokit?q=&type=all&language=javascript&sort=) / [TypeScript](https://github.com/octokit?q=&type=all&language=typescript&sort=)
-- [C# / .NET](https://github.com/octokit?q=&type=all&language=c%23&sort=)
+- [C# / .NET](https://github.com/octokit/octokit.net)
 - [Ruby](https://github.com/octokit?q=&type=all&language=ruby&sort=)
 - [Terraform provider](https://github.com/integrations/terraform-provider-github)
 
