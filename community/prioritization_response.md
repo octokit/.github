@@ -23,17 +23,17 @@ These map directly to the priorities set in our [Octokit Active community board]
 
 ### What are our response commitments?
 
-Note: This does not represent a commitment to resolution, just how quickly we'll respond and begin working on it
+Note: This does not represent a commitment to resolution, just how quickly we'll acknowledge and respond.
 
 | Priority  | Response expectation |
 |----------|:-----------|
-| Urgent | 0 to **24hrs**:  A security advisory will be posted if needed and updates publically posted to the corresponding repository |
-| High | <= **1 Week** : Typically, we'll respond in issue/PR and will have a plan of action within the response expectation time window. |
-| Normal | >= **1 Week** : We'll acknowledge and make administrative assignments to the issue or PR.  They might get labeled "up-for-grabs". |
-| Low | > **1 Week**: Typically, little to no action will take place on these items. They will often get labeled "up-for-grabs". |
+| Urgent | 0 to **24hrs**:  A security advisory will be posted if needed and updates publically posted to the corresponding repository in issue or discussion form. |
+| High | <= **1 Week** : We'll respond in issue/PR and will have a plan of action within the response expectation time window. |
+| Normal | >= **1 Week** : We'll acknowledge and make administrative assignments to the issue or PR. It may be labeled "up-for-grabs", where we encourage community contribution. |
+| Low | > **1 Week**: Typically, little to no action will take place on these items. |
 
 
-### How do we Prioritize?
+### How do we prioritize?
 
 Remembering that we as a team have to prioritize not at the individual SDK or community level but across many repositories and communities, our methods need to consider several variables.
 Our process, while not exactly scientific, is aimed at protecting the interests of our communities first - we use a modified version of [RICE](https://www.productplan.com/glossary/rice-scoring-model/).
