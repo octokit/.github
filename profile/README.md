@@ -1,6 +1,10 @@
-![image](https://user-images.githubusercontent.com/139819/199528006-bc534966-4aee-45da-8d1e-0e71b97a56b3.png)
 
-👋 Hey Octokit friends!
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/139819/199528006-bc534966-4aee-45da-8d1e-0e71b97a56b3.png" />
+</p>
+
+## 👋 Hey Octokit friends!
 
 We're glad you're here! This is where we host all of our Official[^1] SDKs for the GitHub API.
 
