@@ -4,6 +4,8 @@
   <img src="https://user-images.githubusercontent.com/139819/199528006-bc534966-4aee-45da-8d1e-0e71b97a56b3.png" />
 </p>
 
+### 🎃 [Hactoberfest](https://hacktoberfest.com/) 2023 is up and running! Have a look at our [readme](https://github.com/octokit/.github/blob/main/community/hacktoberfest_getting_started.md) to see how you can get involved!🎃
+
 ## 👋 Hey Octokit friends!
 
 We're glad you're here! This is where we host all of our Official[^1] SDKs for the GitHub API.
