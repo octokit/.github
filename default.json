@@ -27,5 +27,6 @@
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     }
-  ]
+  ],
+  "postUpdateOptions": ["npmDedupe"]
 }
