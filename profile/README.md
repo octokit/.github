@@ -4,8 +4,6 @@
   <img src="https://user-images.githubusercontent.com/139819/199528006-bc534966-4aee-45da-8d1e-0e71b97a56b3.png" />
 </p>
 
-### 🎃 [Hactoberfest](https://hacktoberfest.com/) 2023 is up and running! Have a look at our [readme](https://github.com/octokit/.github/blob/main/community/hacktoberfest_getting_started.md) to see how you can get involved!🎃
-
 ## 👋 Hey Octokit friends!
 
 We're glad you're here! This is where we host all of our Official[^1] SDKs for the GitHub API.
@@ -15,6 +13,10 @@ Currently, GitHub maintains SDKs for the following languages/frameworks/platform
 - [C# / .NET](https://github.com/octokit?language=c%23#org-profile-repositories)
 - [Ruby](https://github.com/octokit?language=ruby#org-profile-repositories)
 - [Terraform provider](https://github.com/integrations/terraform-provider-github)
+
+We also have 2 SDKs that are Generated from [GitHub's OpenAPI descriptions](https://github.com/github/rest-api-description)!
+- [C# / .NET](https://github.com/octokit/dotnet-sdk)
+- [Go](https://github.com/octokit/go-sdk)
 
 If you're new here, please take a moment to get familiar with how our communities get stuff done - hopefully, you'll consider being part of the amazing things happening here.
 If you're already a contributor we can't thank you enough for being part of making our communities what they are!  Thank you for all that you do.
@@ -26,12 +28,23 @@ it's definitely not the only thing that makes it amazing... you are!
 
 Practice kindness, be welcoming, and always assume that we all have something to learn. Take a minute to read more about our [code of conduct](CODE_OF_CONDUCT.md).
 
-## Contributing
+## How we work
 
+### Contributing
 While each community in our collection of Octokit communities is unique and has its own individuality, we have standard approaches across all of our repos
 to lower barriers to entry and reduce the friction of getting things done. Make sure to have a look at each repository's `CONTRIBUTING` docs above when
-making contributions. For more information on how our team prioritizes and responds to issues, PRs, and discussions, please see [this document](community/prioritization_response.md).
-Oh, and thanks for being amazing and helping to both improve our communities and code! ❤️
+making contributions. 
+
+### Team and Community processes
+- For more information on how our **team prioritizes** and responds to issues, PRs, and discussions, please see [this document](community/prioritization_response.md).
+- For more information on how our community works around **Pull Requests** and **Issues**, please see [this document](https://github.com/octokit/.github/blob/main/community/commits_pr_conventions.md).
+- For more information on how we handle **breaking changes**, please see [this document](https://github.com/octokit/.github/blob/main/community/breaking_changes.md).
+
+
+Lastly, we really wanted to thank all of you for being amazing and helping to both improve our communities and code! ❤️
+
 
 [^1]: Official just means GitHub and folks from GitHub support and maintain these libraries on an ongoing basis.
 You can check out some of the other amazing SDKs created and maintained by the community [here](https://docs.github.com/en/rest/overview/libraries)!
+
+
