@@ -36,9 +36,9 @@ to lower barriers to entry and reduce the friction of getting things done. Make 
 making contributions. 
 
 ### Team and Community processes
-- For more information on how our **team prioritizes** and responds to issues, PRs, and discussions, please see [this document](community/prioritization_response.md).
-- For more information on how our community works around **Pull Requests** and **Issues**, please see [this document](https://github.com/octokit/.github/blob/main/community/commits_pr_conventions.md).
-- For more information on how we handle **breaking changes**, please see [this document](https://github.com/octokit/.github/blob/main/community/breaking_changes.md).
+- For more information on how our **team prioritizes** and responds to issues, PRs, and discussions, please see [this document](../community/prioritization_response.md).
+- For more information on how our community works around **Pull Requests** and **Issues**, please see [this document](../community/commits_pr_conventions.md).
+- For more information on how we handle **breaking changes**, please see [this document](../community/breaking_changes.md).
 
 
 Lastly, we really wanted to thank all of you for being amazing and helping to both improve our communities and code! ❤️
