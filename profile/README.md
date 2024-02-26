@@ -47,4 +47,3 @@ Lastly, we really wanted to thank all of you for being amazing and helping to bo
 [^1]: Official just means GitHub and folks from GitHub support and maintain these libraries on an ongoing basis.
 You can check out some of the other amazing SDKs created and maintained by the community [here](https://docs.github.com/en/rest/overview/libraries)!
 
-
