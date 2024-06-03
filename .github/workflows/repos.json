@@ -2,6 +2,7 @@
 	"integrations/terraform-provider-github",
 	"octokit/dotnet-sdk",
 	"octokit/go-sdk",
+	"octokit/source-generator",
 	"octokit/octokit.net",
 	"octokit/octokit.graphql.net",
 	"octokit/octokit-metrics",
