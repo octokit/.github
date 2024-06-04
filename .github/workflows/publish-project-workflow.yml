@@ -1,54 +1,60 @@
 name: Workflow Publisher
 on:
- workflow_dispatch:
- push:
-   branches: [ 'main']
-   paths:
-   - '.github/templates/**'
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/templates/**"
 jobs:
   set-matrix:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-     - uses: actions/checkout@v3
-     - id: set-matrix
-       run: |
-         JSON=$(cat .github/workflows/repos.json)
-         echo "matrix=${JSON//'%'/'%25'}" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v3
+      - id:
+          set-matrix
+          # parse the repos.json file, replace '%' with '%25', remove newlines and tabs,
+          # and set the output as a matrix to be operated upon
+        run: |
+          JSON=$(cat .github/workflows/repos.json)
+          matrix=$(echo "${JSON//'%'/'%25'}" | tr -d '\n\t')
+          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
   publish-workflow-template:
     needs: set-matrix
     runs-on: ubuntu-latest
+    # since we're running a matrix job across multiple repos, we don't want all processing
+    # to stop if one repo fails, is archived, etc.
+    continue-on-error: true
     strategy:
       max-parallel: 2
       matrix:
-         target_repo: ${{fromJson(needs.set-matrix.outputs.matrix)}}
+        target_repo: ${{fromJson(needs.set-matrix.outputs.matrix)}}
     steps:
-     - name: Checkout Workflows
-       uses: actions/checkout@v3
-       with:
-         path: main
-     - name: Checkout target repo
-       uses: actions/checkout@v3
-       with:
-         repository: ${{ matrix.target_repo }}
-         path: ${{ matrix.target_repo }}
-         token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
-     - name: Update workflows
-       working-directory: ./
-       shell: bash
-       run: |
-         mkdir -p ${{ matrix.target_repo }}/.github/workflows/
-         cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
-     - name: Create Pull Request
-       uses: peter-evans/create-pull-request@v4
-       with:
-         token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
-         commit-message: "Updates for workflows"
-         title: "🚧 Workflows have changed"
-         body: "Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes."
-         branch: workflow-update
-         labels: "Type: Maintenance"
-         author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
-         path: ${{ matrix.target_repo }}
-
+      - name: Checkout Workflows
+        uses: actions/checkout@v3
+        with:
+          path: main
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ matrix.target_repo }}
+          path: ${{ matrix.target_repo }}
+          token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN}}
+      - name: Update workflows
+        working-directory: ./
+        shell: bash
+        run: |
+          mkdir -p ${{ matrix.target_repo }}/.github/workflows/
+          cp main/.github/templates/* ${{ matrix.target_repo }}/.github/workflows/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
+          commit-message: "Updates for workflows"
+          title: "🚧 Workflows have changed"
+          body: "Workflow changes have been made in the Octokit org repo.  This PR is propagating those changes."
+          branch: workflow-update
+          labels: "Type: Maintenance"
+          author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
+          path: ${{ matrix.target_repo }}
