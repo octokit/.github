@@ -27,7 +27,6 @@
 	"octokit/oauth-methods.js",
 	"octokit/octokit-metrics",
 	"octokit/octokit-next.js",
-	"octokit/octokit.github.com",
 	"octokit/octokit.graphql.net",
 	"octokit/octokit.js",
 	"octokit/octokit.net",
