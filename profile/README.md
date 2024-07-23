@@ -26,7 +26,7 @@ If you're already a contributor we can't thank you enough for being part of maki
 Open source projects can be amazing things and while the source code they provide is an important component of the project
 it's definitely not the only thing that makes it amazing... you are!
 
-Practice kindness, be welcoming, and always assume that we all have something to learn. Take a minute to read more about our [code of conduct](CODE_OF_CONDUCT.md).
+Practice kindness, be welcoming, and always assume that we all have something to learn. Take a minute to read more about our [code of conduct](../CODE_OF_CONDUCT.md).
 
 ## How we work
 
