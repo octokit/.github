@@ -6,6 +6,10 @@ on:
   pull_request_target:
     types: [reopened, opened]
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   add-to-project:
     name: Add issue to project
@@ -14,7 +18,7 @@ jobs:
     steps:
       - uses: actions/add-to-project@v1.0.1
         with:
-          project-url: https://github.com/orgs/octokit/projects/10
-          github-token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
+          project-url: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN && 'https://github.com/orgs/octokit/projects/10' || '' }}
+          github-token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN || github.token }}
           labeled: "Status: Stale"
           label-operator: NOT
