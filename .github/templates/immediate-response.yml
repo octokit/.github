@@ -1,5 +1,9 @@
-# This workflow originates from the Octokit Community Health repo (https://github.com/octokit/.github/blob/main/.github/templates/immediate-response.yml)
-# Changes to the workflow are automatically synced downstream, so please make sure to put your suggestions there so that your changes are reflected across all repositories.
+# This workflow originates from https://github.com/octokit/.github/blob/main/.github/templates/immediate-response.yml
+
+# NOTE:
+#  Changes to the workflow are automatically synced downstream,
+#  so please make sure to put your suggestions there so that
+#  your changes are reflected across all repositories.
 
 name: Issue/PR response
 
