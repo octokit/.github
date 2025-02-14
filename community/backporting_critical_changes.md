@@ -8,7 +8,7 @@ In general, **we will backport to the last major version release**.  There are e
 5. If the change is related to an issue in a language framework or Security Advisory within that language's ecosystem.
 6. If the change is in our JavaScript SDKs. In this case the patch will be applied to the latest non ESM version (see the table below).
 
-| JS SDK/Library                                                  	| ESM version                                                                         	| Non-ESM version                                                                     	|
+| JS SDK/Library                                                  	| ESM Introduced                                                                        | Non-ESM                                                                     	|
 |-----------------------------------------------------------------	|-------------------------------------------------------------------------------------	|-------------------------------------------------------------------------------------	|
 | [openapi-types.ts](https://github.com/octokit/openapi-types.ts)                     	| [v12.9.0](https://github.com/octokit/openapi-types.ts/releases/tag/v12.9.0)                    	| [v12.8.0](https://github.com/octokit/openapi-types.ts/releases/tag/v12.8.0) |
 | [graphql-schema](https://github.com/octokit/graphql-schema)                       	| [v15.0.0](https://github.com/octokit/graphql-schema/releases/tag/v15.0.0)                      	| [v14.58.0](https://github.com/octokit/graphql-schema/releases/tag/v14.58.0) |
