@@ -3,7 +3,7 @@ In the event that we need to backport changesets across our various [SDKs](https
 In general, **we will backport to the last major version release**.  There are exceptions:
 1. If the change is causing issues in a specific release and no others then the backport will target that release and any future ones (where appropriate)
 2. If the change is related to a Security Advisory that is causing data corruption.
-3. If the change is related to a Security Advisory where any PII is involved.
+3. If the change is related to a Security Advisory where any personally identifiable information is involved.
 4. If the change is related to a Security Advisory that is causing system wide issues / network related issues.
 5. If the change is related to an issue in a language framework or Security Advisory within that language's ecosystem.
 6. If the change is in our JavaScript SDKs. In this case the patch will be applied to the latest non ESM version (see the table below).
