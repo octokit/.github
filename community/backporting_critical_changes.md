@@ -8,6 +8,37 @@ In general, **we will backport to the last major version release**.  There are e
 5. If the change is related to an issue in a language framework or Security Advisory within that language's ecosystem.
 6. If the change is in our JavaScript SDKs. In this case the patch will be applied to the latest non ESM version (see the table below).
 
+
+#### Backporting process (Octokit.js)
+
+Note: The following uses information from a historical backport as an example.
+
+- Start with the patched library (ex. [request-error.js](https://github.com/octokit/request-error.js)), get the last [non ESM version](https://github.com/octokit/.github/pull/95)
+- Semantic release handles maintenance release
+- Create a major.x version (i.e. 5.x if one does not exist, [5.x](https://github.com/octokit/request-error.js/tree/5.x) does exist for request-error.js, so we'll use that) - using fix and feat conventions
+```
+> git checkout 5.x
+> git checkout -b 5.x-fix-regex 5.x
+```
+* Find the commit of the changeset (i.e. from the [patch release](https://github.com/octokit/request-error.js/commit/d558320874a4bc8d356babf1079e6f0056a59b9e))
+- Try to cherry pick. ex.
+```
+> git cherry-pick d558320874a4bc8d356babf1079e6f0056a59b9e
+```
+- Use same message as the fix / feat. ex.
+* "fix: ReDos  regex vulnerability, reported by @user"
+```
+> git commit --amend -m 'fix: ReDos  regex vulnerability, reported by @user'
+```
+- Create a PR against 5.x
+```
+gh pr create -B 5.x -t 'fix: ReDos  regex vulnerability, reported by @user' -b 'backport of https://github.com/octokit/request-error.js/releases/tag/v6.1.7'
+```
+- Once CI runs green then merge and let semantic release take over.
+- Update the table below with the new version from the backport.
+
+Rule: If the library does not have a leaf (but is a leaf itself) then the lib needs to be back ported
+
 | JS SDK/Library                                                  	| Last Non-ESM Version                                                                    	|
 |-----------------------------------------------------------------	|-------------------------------------------------------------------------------------	|
 | [openapi-types.ts](https://github.com/octokit/openapi-types.ts)                     	| [v12.8.0](https://github.com/octokit/openapi-types.ts/releases/tag/v12.8.0) |
@@ -30,9 +61,9 @@ In general, **we will backport to the last major version release**.  There are e
 | [plugin-paginate-graphql.js](https://github.com/octokit/plugin-paginate-graphql.js)           	| [v4.0.1](https://github.com/octokit/plugin-paginate-graphql.js/releases/tag/v4.0.1)           	|
 | [plugin-paginate-rest.js](https://github.com/octokit/plugin-paginate-rest.js)              	| [v9.2.0](https://github.com/octokit/plugin-paginate-rest.js/releases/tag/v9.2.0)              	|
 | [oauth-methods.js](https://github.com/octokit/oauth-methods.js)                     	| [v4.0.1](https://github.com/octokit/oauth-methods.js/releases/tag/v4.0.1)                     	|
-| [request-error.js](https://github.com/octokit/request-error.js)                     	| [v5.0.1](https://github.com/octokit/request-error.js/releases/tag/v5.0.1)                     	|
+| [request-error.js](https://github.com/octokit/request-error.js)                     	| [v5.1.1](https://github.com/octokit/request-error.js/releases/tag/v5.1.1)                     	|
 | [core.js](https://github.com/octokit/core.js)                              	| [v5.1.0](https://github.com/octokit/core.js/releases/tag/v5.1.0)                              	|
-| [endpoint.js](https://github.com/octokit/endpoint.js)                          	| [v9.0.4](https://github.com/octokit/endpoint.js/releases/tag/v9.0.4)                          	|
+| [endpoint.js](https://github.com/octokit/endpoint.js)                          	| [v9.0.6](https://github.com/octokit/endpoint.js/releases/tag/v9.0.6)                          	|
 | [webhooks.js](https://github.com/octokit/webhooks.js)                          	| [v12.2.0](https://github.com/octokit/webhooks.js/releases/tag/v12.2.0)                         	|
 | [plugin-throttling.js](https://github.com/octokit/plugin-throttling.js)                 	| [v8.2.0](https://github.com/octokit/plugin-throttling.js/releases/tag/v8.2.0)                 	|
 | [graphql.js](https://github.com/octokit/graphql.js)                           	| [v7.0.2](https://github.com/octokit/graphql.js/releases/tag/v7.0.2)                           	|
